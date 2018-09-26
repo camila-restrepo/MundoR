@@ -1,0 +1,216 @@
+---
+title: "Mundo R"
+author: "Camila Restrepo"
+date: "25 de septiembre de 2018"
+output: 
+  html_document:
+    toc: TRUE
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Entradas básicas
+
+```{r}
+dos <- 2
+tres <- 3
+```
+
+# Operadores
+
+## Comparación
+
+```{r}
+2 == 2
+2 != 2
+2 < 2 # Mayor que
+2 > 2 # Menor que
+2 <= 2 # Mayor o igual
+2 >= 2 # Menor o igual
+! (2 + 2) == 4 # Negación
+```
+
+
+```{r}
+flores <- c(10, 2, 5)
+frutos <- c(6, 7, 3)
+```
+
+## Conjunción
+
+```{r}
+(flores > 3) & (frutos <= 2) # Se comparan todos los valores
+(flores > 3) && (frutos <= 2) # Se compara solo el primer valor
+```
+
+## Disyunción
+
+```{r}
+(flores > 3) | (frutos <= 2) # Se comparan todos los valores
+(flores > 3) || (frutos <= 2) # Se compara solo el primer valor
+```
+
+# Tipos de datos
+
+```{r}
+numerico <- 3.5
+entero <- 2L
+caracter <- "Semillero de R"
+logico <- TRUE
+complejo <- 1 + 2i # No se usará
+```
+
+```{r}
+class(numerico)
+class(entero)
+class(caracter)
+class(logico)
+class(complejo)
+```
+
+# Objetos estructurados
+
+## Vectores
+
+```{r}
+# Vector numérico
+
+vector.num1 <- vector(mode = "numeric", length = 5)
+vector.num1
+
+Vector.num2 <- c(2.5, 1.8, 5)
+Vector.num2
+
+class(vector.num1)
+length(vector.num1)
+class(Vector.num2)
+length(Vector.num2)
+```
+
+## Matrices
+
+```{r}
+# Matriz por columna
+
+mi.matriz1 <- matrix(data = c(1, 2, 3, 4), nrow = 2, ncol = 2)
+mi.matriz1
+
+# Matriz por fila
+
+mi.matriz2 <- matrix(data = c(1, 2, 3, 4), nrow = 2, ncol = 2, byrow = TRUE)
+mi.matriz2
+```
+
+```{r}
+# Dimensiones de la matriz
+
+dim(mi.matriz1)
+
+# Nombres de filas y columnas de la matriz
+
+rownames(mi.matriz1) <- c("Fila1", "Fila2")
+colnames(mi.matriz1) <- c("Col1", "Col2")
+mi.matriz1
+```
+
+## Factores
+
+```{r}
+# Niveles por defecto
+factor1 <- factor(x = c("Hombre", "Mujer", "Hombre", "Mujer"))
+class(factor1)
+levels(factor1)
+
+# Manipulando los niveles del factor
+factor2 <- factor(x = c("Hombre", "Mujer", "Hombre", "Mujer"), levels = c("Mujer", "Hombre"))
+class(factor2)
+levels(factor2)
+```
+
+```{r}
+# Frecuencia absoluta
+table(factor2) 
+
+# Frecuencia relativa
+prop.table(table(factor2))
+```
+
+## Listas
+
+```{r}
+mi.lista1 <- list(a1 = c(1, 2), a2 = c("Rojo", "Verde"), a3 = factor(x = c("Hombre", "Mujer")))
+mi.lista1
+class(mi.lista1)
+length(mi.lista1)
+names(mi.lista1)
+```
+
+## Data frame
+
+```{r}
+df1 <- data.frame(Nombre = c("Juan", "Pedro", "Laura", "Sara"),
+                  Edd = c(12, 16, 25, 30),
+                  genero = c("M", "M", "F", "F"),
+                  edad2 = c("Niño", "Joven", "Joven adulto", "Joven adulto"))
+df1
+```
+
+```{r}
+# Estructura interna de la base de datos
+str(df1)
+
+# Imprimir la variable edad2
+df1$edad2
+```
+
+```{r}
+# Dimensiones de la base de datos
+dim(df1)
+
+# Longitud de la base de datos
+length(df1)
+
+# Nombres de variables
+names(df1)
+
+# Nombres de individuos
+rownames(df1)
+```
+
+```{r}
+# Nueva variable con el número de hermanos
+df1$hermanos <- c(1, 0, 3, 2)
+df1
+
+# Editando los nombres de las variables
+names(df1) <- c("Nombre", "Edad", "Género", "Edad2", "Hermanos")
+head(df1, n = 1)
+tail(df1, n = 1)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
